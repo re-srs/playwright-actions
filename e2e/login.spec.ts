@@ -50,5 +50,6 @@ const login = async (page: Page, user: string, pass: string) => {
 
     await page.click('css=button >> text=Entrar')
     await page.waitForLoadState('networkidle')
+    await page.waitForTimeout(3000)
 }
 
