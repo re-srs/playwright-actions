@@ -37,6 +37,7 @@ const modal = async (page: Page, message: string) => {
 
 const login = async (page: Page, user: string, pass: string) => {
     await page.goto('/')
+    await page.waitForLoadState('networkidle')
 
     const username = page.locator('[name=user]')
     const password = page.locator('[name=pass]')
@@ -48,5 +49,6 @@ const login = async (page: Page, user: string, pass: string) => {
       ? await password.fill(pass) : null
 
     await page.click('css=button >> text=Entrar')
+    await page.waitForLoadState('networkidle')
 }
 
